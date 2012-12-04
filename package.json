@@ -24,7 +24,7 @@
 	"licenses": [
 		{
 			"type": "WTFPL",
-			"url": "https://github.com/stephenmathieson/node-cpplint/blob/master/LICENSE"
+			"url": "https://raw.github.com/stephenmathieson/node-cpplint/master/LICENSE"
 		}
 	],
 
@@ -49,6 +49,7 @@
 	"devDependencies": {
 		"grunt": "0.3.x",
 		"grunt-jslint": "0.2.x",
-		"vows": "0.7.x"
+		"vows": "0.7.x",
+		"grunt-vows": "0.2.x"
 	}
 }

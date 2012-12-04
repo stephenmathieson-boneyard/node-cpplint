@@ -4,6 +4,7 @@ module.exports = function (grunt) {
 	'use strict';
 
 	grunt.loadNpmTasks('grunt-jslint');
+	grunt.loadNpmTasks('grunt-vows');
 
 	// Project configuration.
 	grunt.initConfig({
@@ -20,10 +21,24 @@ module.exports = function (grunt) {
 			}
 		},
 
+		vows: {
+			all: {
+				files: [
+					'test/*.js'
+				],
+				reporter: 'spec',
+				colors: true
+			}
+		},
+
 		watch: {
 			files: '<config:jslint.files>',
 			tasks: 'jslint'
 		}
+
 	});
+
+	grunt.registerTask('validate', 'jslint vows');
+	grunt.registerTask('default', 'validate');
 
 };
