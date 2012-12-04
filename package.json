@@ -48,6 +48,7 @@
 
 	"devDependencies": {
 		"grunt": "0.3.x",
-		"grunt-jslint": "0.2.x"
-	},
+		"grunt-jslint": "0.2.x",
+		"vows": "0.7.x"
+	}
 }
