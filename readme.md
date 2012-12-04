@@ -57,6 +57,7 @@ cpplint(options, function (err, report) {
 ## TODO
 
 Future plans (in no perticular order):
+- better test coverage
 - grunt task
 - support for `filters`
 - JUnit-xml reporter
