@@ -44,7 +44,8 @@ module.exports = function (grunt) {
 				'test/fixtures/**/*.cpp'
 			],
 			reporter: 'spec',
-			verbosity: 1
+			verbosity: 1,
+			counting: 'toplevel'
 		}
 
 	});

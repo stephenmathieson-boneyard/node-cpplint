@@ -29,8 +29,8 @@ module.exports = function (grunt) {
 		}
 
 		options.files = grunt.file.expandFiles(conf('files'));
-
 		options.verbosity = conf('verbosity') || 1;
+		options.counting = conf('counting') || 'toplevel';
 
 		cpplint(options, function (err, report) {
 

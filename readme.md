@@ -4,16 +4,20 @@ Validates CPP files with Google's [cpplint](http://google-styleguide.googlecode.
 
 ## Usage
 
-This module has been built for both usage with Node scripts and from the command line.
+This module has been built for usage with Node scripts, to run from the command line and to be used as a Grunt task.
 
-### CLI usage
+### Options
 
-The CLI accepts the following parameters:
-- **reporter** The reporter to use (*spec*|*json*|*plain-text*); defaults to *spec*.
-- **counting** The counting-type (*total*|*toplevel*|*detailed*; defaults to *total*.  The total number of errors found is always printed. If 'toplevel' is provided, then the count of errors in each of the top-level categories like 'build' and 'whitespace' will also be printed. If 'detailed' is provided, then a count is provided for each category like 'build/class'.
+All methods of using this module allow for three specific configuration options:
+
+- **reporter** The reporter to use ( *spec* | *json* | *plain-text* ); defaults to *spec*.
+- **counting** The counting-type ( *total* | *toplevel* | *detailed* ); defaults to *total*.  The total number of errors found is always printed. If *toplevel* is provided, then the count of errors in each of the top-level categories like `build` and `whitespace` will also be printed. If *detailed* is provided, then a count is provided for each category like `build/class`.
 - **verbose** The verbosity level; defaults to *1*.  A number *0-5* to restrict errors to certain verbosity levels.
 
-Example
+A list of files is also expected.
+
+
+### CLI usage
 
 ```bash
 bin/cpplint --verbose (1-5) --reporter (spec|json|plain-text) --counting (total|toplevel|detailed) file1 file2 ...
@@ -33,7 +37,6 @@ var options = {
 };
 
 cpplint(options, reporter);
-
 ```
 
 Using a custom reporter
@@ -49,26 +52,27 @@ var options = {
 cpplint(options, function (err, report) {
 	// your reporting logic
 });
-
-
 ```
 
 ### Grunt Task
 
 ```javascript
-cpplint: {
-	files: [
-		'src/**/*.cc',
-		'src/**/*.cpp'
-	],
-	reporter: 'spec',
-	verbosity: 1
-}
+grunt.initConfig({
+	cpplint: {
+		files: [
+			'src/**/*.cc',
+			'src/**/*.cpp'
+		],
+		reporter: 'spec',
+		verbosity: 1
+	}
+});
 ```
 
 ## TODO
 
 Future plans (in no perticular order):
+- better test coverage
 - support for `filters`
 - JUnit-xml reporter
 
@@ -81,6 +85,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ### 0.1.1
 - added simple grunt task
+
 
 ### 0.1.0
 
