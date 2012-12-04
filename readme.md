@@ -4,15 +4,22 @@ Validates CPP files with Google's [cpplint](http://google-styleguide.googlecode.
 
 ## Usage
 
-This module has been built for usage with Node scripts, to run from the command line and to be used as a Grunt task.
+This module has been built for usage with Node scripts, to run from the command
+line, and to be used as a Grunt task.
 
 ### Options
 
 All methods of using this module allow for three specific configuration options:
 
-- **reporter** The reporter to use ( *spec* | *json* | *plain-text* ); defaults to *spec*.
-- **counting** The counting-type ( *total* | *toplevel* | *detailed* ); defaults to *total*.  The total number of errors found is always printed. If *toplevel* is provided, then the count of errors in each of the top-level categories like `build` and `whitespace` will also be printed. If *detailed* is provided, then a count is provided for each category like `build/class`.
-- **verbose** The verbosity level; defaults to *1*.  A number *0-5* to restrict errors to certain verbosity levels.
+- **reporter** The reporter to use ( *spec* | *json* | *plain-text* ); defaults
+to *spec*.
+- **counting** The counting-type ( *total* | *toplevel* | *detailed* ); defaults
+to *total*.  The total number of errors found is always printed. If *toplevel*
+is provided, then the count of errors in each of the top-level categories like
+`build` and `whitespace` will also be printed. If *detailed* is provided, then
+a count is provided for each category like `build/class`.
+- **verbose** The verbosity level; defaults to *1*.  A number *0-5* to restrict
+errors to certain verbosity levels.
 
 A list of files is also expected.
 
@@ -79,7 +86,10 @@ Future plans (in no perticular order):
 
 ## Contributing
 
-In lieu of a formal styleguide, take care to maintain the existing coding style.  Add unit tests (using [vows](https://github.com/cloudhead/vows)) for any new or changed functionality.  Lint and test your code using `grunt jslint` and verify that all unit tests are passing with `grunt vows`.
+In lieu of a formal styleguide, take care to maintain the existing coding
+style.  Add unit tests (using [vows](https://github.com/cloudhead/vows)) for
+any new or changed functionality.  Lint and test your code using `grunt jslint`
+and verify that all unit tests are passing with `grunt vows`.
 
 ## Revision History
 
