@@ -9,8 +9,8 @@ This module has been built for both usage with Node scripts and from the command
 ### CLI usage
 
 The CLI accepts the following parameters:
-- **reporter** The reporter to use (*spec*|*json*|*plain-text*); defaults to *spec*.
-- **counting** The counting-type (*total*|*toplevel*|*detailed*; defaults to *total*.  The total number of errors found is always printed. If 'toplevel' is provided, then the count of errors in each of the top-level categories like 'build' and 'whitespace' will also be printed. If 'detailed' is provided, then a count is provided for each category like 'build/class'.
+- **reporter** The reporter to use ( *spec* | *json* | *plain-text* ); defaults to *spec*.
+- **counting** The counting-type ( *total* | *toplevel* | *detailed* ); defaults to *total*.  The total number of errors found is always printed. If 'toplevel' is provided, then the count of errors in each of the top-level categories like 'build' and 'whitespace' will also be printed. If 'detailed' is provided, then a count is provided for each category like 'build/class'.
 - **verbose** The verbosity level; defaults to *1*.  A number *0-5* to restrict errors to certain verbosity levels.
 
 Example
