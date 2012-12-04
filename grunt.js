@@ -6,6 +6,8 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-jslint');
 	grunt.loadNpmTasks('grunt-vows');
 
+	grunt.loadTasks('./tasks');
+
 	// Project configuration.
 	grunt.initConfig({
 
@@ -34,6 +36,15 @@ module.exports = function (grunt) {
 		watch: {
 			files: '<config:jslint.files>',
 			tasks: 'jslint'
+		},
+
+		cpplint: {
+			files: [
+				'test/fixtures/**/*.cc',
+				'test/fixtures/**/*.cpp'
+			],
+			reporter: 'spec',
+			verbosity: 1
 		}
 
 	});

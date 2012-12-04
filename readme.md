@@ -53,11 +53,22 @@ cpplint(options, function (err, report) {
 
 ```
 
+### Grunt Task
+
+```javascript
+cpplint: {
+	files: [
+		'src/**/*.cc',
+		'src/**/*.cpp'
+	],
+	reporter: 'spec',
+	verbosity: 1
+}
+```
 
 ## TODO
 
 Future plans (in no perticular order):
-- grunt task
 - support for `filters`
 - JUnit-xml reporter
 
@@ -67,6 +78,9 @@ Future plans (in no perticular order):
 In lieu of a formal styleguide, take care to maintain the existing coding style.  Add unit tests (using [vows](https://github.com/cloudhead/vows)) for any new or changed functionality.  Lint and test your code using `grunt jslint` and verify that all unit tests are passing with `grunt vows`.
 
 ## Revision History
+
+### 0.1.1
+- added simple grunt task
 
 ### 0.1.0
 
