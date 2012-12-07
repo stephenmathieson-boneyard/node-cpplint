@@ -9,7 +9,7 @@ line, and to be used as a Grunt task.
 
 ### Options
 
-All methods of using this module allow for three specific configuration options:
+All methods of using this module allow for four specific configuration options:
 
 - **reporter** The reporter to use ( *spec* | *json* | *plain-text* ); defaults
 to *spec*.
@@ -20,15 +20,32 @@ is provided, then the count of errors in each of the top-level categories like
 a count is provided for each category like `build/class`.
 - **verbose** The verbosity level; defaults to *1*.  A number *0-5* to restrict
 errors to certain verbosity levels.
+- **filters** Enable/disable filtering for specific errors.
+
 
 A list of files is also expected.
 
 
 ### CLI usage
 
+Using the `spec` reporter, disabling *whitespace/braces* errors and linting *file1*.
+
 ```bash
-bin/cpplint --verbose (1-5) --reporter (spec|json|plain-text) --counting (total|toplevel|detailed) file1 file2 ...
+bin/cpplint --reporter spec --filter whitespace-braces file1
 ```
+
+Setting verbosity to `3` and the counting-type to `detailed` while linting *file1* and *file2*.
+
+```bash
+bin/cpplint --verbose 3 --counting detailed file2 file3
+```
+
+Using the `plain-text` reporter, ignoring *build/deprecated* errors and linting *file1*.
+
+```bash
+bin/cpplint --filter build-deprecated --reporter plain-text
+```
+
 
 ### JavaScript usage
 
@@ -46,14 +63,20 @@ var options = {
 cpplint(options, reporter);
 ```
 
-Using a custom reporter
+Using a custom reporter, disabling *whitespace/braces* and enabling *whitespace/include_alpha*
 
 ```javascript
 var cpplint = require('lib/index');
 var options = {
 	files: [
 		'/path/to/some/files.cc'
-	]
+	],
+	filters: {
+		'whitespace': {
+			'braces': false,
+			'include_alpha': true
+		}
+	}
 };
 
 cpplint(options, function (err, report) {
@@ -64,6 +87,8 @@ cpplint(options, function (err, report) {
 ### Grunt Task
 
 ```javascript
+grunt.loadNpmTasks('node-cpplint');
+
 grunt.initConfig({
 	cpplint: {
 		files: [
@@ -72,6 +97,12 @@ grunt.initConfig({
 		],
 		reporter: 'spec',
 		verbosity: 1
+	},
+	filters: {
+		'whitespace': {
+			'braces': false,
+			'include_alpha': true
+		}
 	}
 });
 ```
@@ -80,8 +111,7 @@ grunt.initConfig({
 
 Future plans (in no perticular order):
 - better test coverage
-- support for `filters`
-- JUnit-xml reporter
+- xunit-xml reporter
 
 
 ## Contributing
@@ -92,6 +122,9 @@ any new or changed functionality.  Lint and test your code using `grunt jslint`
 and verify that all unit tests are passing with `grunt vows`.
 
 ## Revision History
+
+### 0.1.2
+- added support for ignoring certain errors (filters)
 
 ### 0.1.1
 - added simple grunt task
