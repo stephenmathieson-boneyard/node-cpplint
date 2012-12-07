@@ -4,6 +4,10 @@ var cpplint = require('../lib/index.js');
 
 var reporters = require('../lib/reporters/index.js');
 
+var filters = require('../lib/filters.js');
+
+var extend = require('../lib/extend.js');
+
 module.exports = function (grunt) {
 	'use strict';
 
@@ -21,12 +25,18 @@ module.exports = function (grunt) {
 
 		var done = this.async(),
 			options = {},
+			gruntFilters = conf('filters') || {},
 			reporter = conf('reporter') || 'spec';
 
 		if (!reporters[reporter]) {
 			grunt.log.error('Invalid/unsupported reporter');
 			return false;
 		}
+
+		options.filters = extend(filters.defaults, gruntFilters, true);
+
+		console.log(options.filters);
+		return done(true);
 
 		options.files = grunt.file.expandFiles(conf('files'));
 		options.verbosity = conf('verbosity') || 1;
