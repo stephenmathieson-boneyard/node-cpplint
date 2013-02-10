@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 	'use strict';
 
 	/**
-	 * Grabs a config option from the jslint namespace
+	 * Grabs a config option from the cpplint namespace
 	 *
 	 * @param  {String} option The option/configuration key
 	 * @return {Mixed|Any}     The key's value
@@ -34,9 +34,6 @@ module.exports = function (grunt) {
 		}
 
 		options.filters = extend(filters.defaults, gruntFilters, true);
-
-		console.log(options.filters);
-		return done(true);
 
 		options.files = grunt.file.expandFiles(conf('files'));
 		options.verbosity = conf('verbosity') || 1;
