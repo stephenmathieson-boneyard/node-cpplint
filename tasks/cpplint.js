@@ -35,7 +35,7 @@ module.exports = function (grunt) {
 
 		options.filters = extend(filters.defaults, gruntFilters, true);
 
-		options.files = grunt.file.expandFiles(conf('files'));
+		options.files = grunt.file.expand(conf('files'));
 		options.verbosity = conf('verbosity') || 1;
 		options.counting = conf('counting') || 'toplevel';
 
