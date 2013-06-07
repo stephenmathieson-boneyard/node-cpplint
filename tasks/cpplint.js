@@ -9,65 +9,65 @@ var filters = require('../lib/filters.js');
 var extend = require('../lib/extend.js');
 
 module.exports = function (grunt) {
-	'use strict';
+  'use strict';
 
-	/**
-	 * Grabs a config option from the cpplint namespace
-	 *
-	 * @param  {String} option The option/configuration key
-	 * @return {Mixed|Any}     The key's value
-	 */
-	function conf(option) {
-		return grunt.config('cpplint.' + option);
-	}
+  /**
+   * Grabs a config option from the cpplint namespace
+   *
+   * @param  {String} option The option/configuration key
+   * @return {Mixed|Any}     The key's value
+   */
+  function conf(option) {
+    return grunt.config('cpplint.' + option);
+  }
 
-	grunt.registerTask('cpplint', 'Validate CPP files with cpplint', function () {
+  grunt.registerTask('cpplint', 'Validate CPP files with cpplint', function () {
 
-		var done = this.async(),
-			options = {},
-			gruntFilters = conf('filters') || {},
-			reporter = conf('reporter') || 'spec';
+    var done = this.async(),
+      options = {},
+      gruntFilters = conf('filters') || {},
+      reporter = conf('reporter') || 'spec';
 
-		if (!reporters[reporter]) {
-			grunt.log.error('Invalid/unsupported reporter');
-			return false;
-		}
+    if (!reporters[reporter]) {
+      grunt.log.error('Invalid/unsupported reporter');
+      return false;
+    }
 
-		options.filters = extend(filters.defaults, gruntFilters, true);
+    options.filters = extend(filters.defaults, gruntFilters, true);
 
-		options.files = grunt.file.expand(conf('files'));
-		options.verbosity = conf('verbosity') || 1;
-		options.counting = conf('counting') || 'toplevel';
+    options.files = grunt.file.expand(conf('files'));
+    options.verbosity = conf('verbosity') || 1;
+    options.counting = conf('counting') || 'toplevel';
 
-		cpplint(options, function (err, report) {
+    cpplint(options, function (err, report) {
 
-			var failed = false;
+      var failed = false;
 
-			if (err) {
-				grunt.log.error(err);
-				return done(false);
-			}
+      if (err) {
+        grunt.log.error(err);
+        return done(false);
+      }
 
-			reporters[reporter](null, report);
+      reporters[reporter](null, report);
 
-			// hack
-			(function () {
+      // hack
+      (function () {
 
-				var index, count, fileReport,
-					filenames = Object.keys(report);
+        var index, count, fileReport,
+          filenames = Object.keys(report);
 
-				for (index = 0, count = filenames.length; index < count; index += 1) {
-					if (report[filenames[index]].length) {
-						failed = true;
-						break;
-					}
-				}
+        for (index = 0, count = filenames.length; index < count; index += 1) {
+          if (report[filenames[index]].length) {
+            failed = true;
+            break;
+          }
+        }
 
-				done(!failed);
+        done(!failed);
 
-			}());
+      }());
 
-		});
+    });
 
-	});
+  });
 };

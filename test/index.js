@@ -8,19 +8,19 @@ var suite = vows.describe('cpplint');
 
 suite.addBatch({
 
-	'sanity': {
-		topic: function () {
-			'use strict';
+  'sanity': {
+    topic: function () {
+      'use strict';
 
-			this.callback(null, cpplint);
-		},
+      this.callback(null, cpplint);
+    },
 
-		'should be a function': function (err, mod) {
-			'use strict';
+    'should be a function': function (err, mod) {
+      'use strict';
 
-			assert.isFunction(mod);
-		}
-	}
+      assert.isFunction(mod);
+    }
+  }
 
 });
 

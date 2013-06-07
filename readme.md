@@ -55,9 +55,9 @@ Using the `spec` reporter
 var cpplint = require('lib/index.js');
 var reporter = require('lib/reporters').spec;
 var options = {
-	files: [
-		'/path/to/some/files.cc'
-	]
+  files: [
+    '/path/to/some/files.cc'
+  ]
 };
 
 cpplint(options, reporter);
@@ -68,19 +68,19 @@ Using a custom reporter, disabling *whitespace/braces* and enabling *whitespace/
 ```javascript
 var cpplint = require('lib/index');
 var options = {
-	files: [
-		'/path/to/some/files.cc'
-	],
-	filters: {
-		'whitespace': {
-			'braces': false,
-			'include_alpha': true
-		}
-	}
+  files: [
+    '/path/to/some/files.cc'
+  ],
+  filters: {
+    'whitespace': {
+      'braces': false,
+      'include_alpha': true
+    }
+  }
 };
 
 cpplint(options, function (err, report) {
-	// your reporting logic
+  // your reporting logic
 });
 ```
 
@@ -90,26 +90,26 @@ cpplint(options, function (err, report) {
 grunt.loadNpmTasks('node-cpplint');
 
 grunt.initConfig({
-	cpplint: {
-		files: [
-			'src/**/*.cc',
-			'src/**/*.cpp'
-		],
-		reporter: 'spec',
-		verbosity: 1
-	},
-	filters: {
-		'whitespace': {
-			'braces': false,
-			'include_alpha': true
-		}
-	}
+  cpplint: {
+    files: [
+      'src/**/*.cc',
+      'src/**/*.cpp'
+    ],
+    reporter: 'spec',
+    verbosity: 1
+  },
+  filters: {
+    'whitespace': {
+      'braces': false,
+      'include_alpha': true
+    }
+  }
 });
 ```
 
 ## TODO
 
-Future plans (in no perticular order):
+Future plans (in no particular order):
 - better test coverage
 - xunit-xml reporter
 
@@ -122,6 +122,12 @@ any new or changed functionality.  Lint and test your code using `grunt jslint`
 and verify that all unit tests are passing with `grunt vows`.
 
 ## Revision History
+
+### 0.1.3
+
+- update grunt task to work with grunt 0.4 (@kevinsawicki)
+- update dev dependencies (grunt-jslint, vows, ...)
+- added `npm test` support
 
 ### 0.1.2
 - added support for ignoring certain errors (filters)

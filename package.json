@@ -1,55 +1,46 @@
 {
-	"name": "node-cpplint",
-
-	"description": "Validates C++ files with cpplint",
-
-	"version": "0.1.2",
-
-	"homepage": "https://github.com/stephenmathieson/node-cpplint",
-
-	"author": {
-		"name": "Stephen Mathieson",
-		"email": "me@stephenmathieson.com"
-	},
-
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/stephenmathieson/node-cpplint.git"
-	},
-
-	"bugs": {
-		"url": "https://github.com/stephenmathieson/node-cpplint/issues"
-	},
-
-	"licenses": [
-		{
-			"type": "WTFPL",
-			"url": "https://raw.github.com/stephenmathieson/node-cpplint/master/LICENSE"
-		}
-	],
-
-	"bin": "bin/cpplint",
-
-	"engines": {
-		"node": "*"
-	},
-
-	"keywords": [
-		"cpplint",
-		"cpp",
-		"lint",
-		"code quality"
-	],
-
-	"dependencies": {
-		"commander": "1.1.x",
-		"colors": "0.6.x"
-	},
-
-	"devDependencies": {
-		"grunt": "0.3.x",
-		"grunt-jslint": "0.2.x",
-		"vows": "0.7.x",
-		"grunt-vows": "0.2.x"
-	}
+  "name": "node-cpplint",
+  "description": "Validates C++ files with cpplint",
+  "version": "0.1.3",
+  "homepage": "https://github.com/stephenmathieson/node-cpplint",
+  "author": {
+    "name": "Stephen Mathieson",
+    "email": "me@stephenmathieson.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stephenmathieson/node-cpplint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stephenmathieson/node-cpplint/issues"
+  },
+  "licenses": [
+    {
+      "type": "WTFPL",
+      "url": "https://raw.github.com/stephenmathieson/node-cpplint/master/LICENSE"
+    }
+  ],
+  "bin": "bin/cpplint",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt jslint && node node_modules/.bin/vows test/*.js --spec"
+  },
+  "keywords": [
+    "cpplint",
+    "cpp",
+    "lint",
+    "code quality"
+  ],
+  "dependencies": {
+    "commander": "~1.1.1",
+    "colors": "~0.6.0-1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-jslint": "~0.2.6",
+    "vows": "~0.7.0",
+    "grunt-vows": "~0.4.0"
+  }
 }
