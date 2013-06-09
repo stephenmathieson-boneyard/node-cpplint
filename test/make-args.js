@@ -98,7 +98,7 @@ suite.addBatch({
       assert.includes(args, '/path/to/file1 /path/to/file2');
     },
     'should pass the correct filters': function (err, args) {
-      assert.includes(args, '--filter=+category1/subcat1,-category1/subcat2,+category1/subcat3+category2/subcat1,-category2/subcat2,+category2/subcat3,+category2/subcat4,-category2/subcat5,+category2/subcat6');
+      assert.includes(args, '--filter=+category1/subcat1,-category1/subcat2,+category1/subcat3,+category2/subcat1,-category2/subcat2,+category2/subcat3,+category2/subcat4,-category2/subcat5,+category2/subcat6');
     }
 
   },
@@ -144,6 +144,9 @@ suite.addBatch({
         'subcat4': true,
         'subcat5': false,
         'subcat6': true
+      },
+      'category3': {
+        'subcat1': true
       }
     }),
     'should return a string': function (filters) {
@@ -171,6 +174,9 @@ suite.addBatch({
     'should disable subcats 2 and 5 in category2': function (filters) {
       assert.includes(filters, '-category2/subcat2');
       assert.includes(filters, '-category2/subcat5');
+    },
+    'should include a comma between filters': function (filters) {
+      assert.include(filters.split(','), '+category3/subcat1');
     }
   }
 });
