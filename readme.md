@@ -123,6 +123,10 @@ and verify that all unit tests are passing with `grunt vows`.
 
 ## Revision History
 
+### 0.1.4
+
+- bug fix in filters support (@kevinsawicki)
+
 ### 0.1.3
 
 - update grunt task to work with grunt 0.4 (@kevinsawicki)
