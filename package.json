@@ -25,7 +25,7 @@
     "node": "*"
   },
   "scripts": {
-    "test": "grunt jslint && node node_modules/.bin/vows test/*.js --spec"
+    "test": "grunt jslint && node node_modules/vows/bin/vows test/*.js --spec"
   },
   "keywords": [
     "cpplint",
