@@ -6,6 +6,8 @@ var vows = require('vows');
 
 var assert = require('assert');
 
+var path = require('path');
+
 var makeArgs = require('../lib/make-args.js').makeArgs;
 
 var filter = require('../lib/make-args.js').filter;
@@ -112,7 +114,8 @@ suite.addBatch({
       ]
     }),
     'first arg should contain "cpplint/cpplint.py"': function (err, args) {
-      assert.includes(args[0], 'cpplint/cpplint.py');
+      var cpplintpy = path.join('cpplint', 'cpplint.py');
+      assert.includes(args[0], cpplintpy);
     },
     'should pass the correct verbose value': function (err, args) {
       assert.includes(args, '--verbose=1');
