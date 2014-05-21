@@ -2,16 +2,23 @@
 
 module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-jslint');
+  grunt.loadNpmTasks("grunt-vows");
   grunt.loadTasks('./tasks');
 
   // Project configuration.
   grunt.initConfig({
 
+    vows: {
+      src: [
+        'test/*.js'
+      ]
+    },
+
     jslint: {
       files: [
         'lib/**/*.js',
         'test/**/*.js',
-        'grunt.js'
+        'Gruntfile.js'
       ],
       directives: {
         node: true,
