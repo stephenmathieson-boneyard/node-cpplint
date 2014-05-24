@@ -112,7 +112,7 @@ suite.addBatch({
     }
 
   },
-  'values (without filters)': {
+  'values (without filters or extensions)': {
     topic: makeArgs({
       'verbosity': 1,
       'counting': 'total',
@@ -135,7 +135,16 @@ suite.addBatch({
       assert.includes(args, '/path/to/file1 /path/to/file2');
     },
     'should not pass a filter value': function (err, args) {
-      assert.equal(args.length, 4); // not quite good enough...
+      var i;
+      for (i = 0; i < args.length; i += 1) {
+        assert.isFalse(args[i].indexOf('filter') !== -1, 'filter was in the list of arguments');
+      }
+    },
+    'should not pass an extensions value': function (err, args) {
+      var i;
+      for (i = 0; i < args.length; i += 1) {
+        assert.isFalse(args[i].indexOf('extensions') !== -1, 'extensions was in the list of arguments');
+      }
     }
   }
 });
