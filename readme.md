@@ -21,6 +21,7 @@ a count is provided for each category like `build/class`.
 - **verbose** The verbosity level; defaults to *1*.  A number *0-5* to restrict
 errors to certain verbosity levels.
 - **filters** Enable/disable filtering for specific errors.
+- **extensions** List of file extensions to lint.
 
 
 A list of files is also expected.
@@ -43,9 +44,14 @@ bin/cpplint --verbose 3 --counting detailed file2 file3
 Using the `plain-text` reporter, ignoring *build/deprecated* errors and linting *file1*.
 
 ```bash
-bin/cpplint --filter build-deprecated --reporter plain-text
+bin/cpplint --filter build-deprecated --reporter plain-text file1
 ```
 
+Using the `cc` and `hpp` extensions and linting *source1.cc* and *source1.hpp*.
+
+```bash
+bin/cpplint --extensions cc,hpp source1.cc source1.hpp
+```
 
 ### JavaScript usage
 
@@ -76,7 +82,12 @@ var options = {
       'braces': false,
       'include_alpha': true
     }
-  }
+  },
+  // This could be an array of strings or a comma separated string
+  extensions: [
+    'cc',
+    'hpp'
+  ]
 };
 
 cpplint(options, function (err, report) {
@@ -103,7 +114,12 @@ grunt.initConfig({
       'braces': false,
       'include_alpha': true
     }
-  }
+  },
+  // This could be an array of strings or a comma separated string
+  extensions: [
+    'cc',
+    'hpp'
+  ]
 });
 ```
 

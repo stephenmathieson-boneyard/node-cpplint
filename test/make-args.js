@@ -88,7 +88,12 @@ suite.addBatch({
           'subcat5': false,
           'subcat6': true
         }
-      }
+      },
+      'extensions': [
+        'cpp',
+        'cc',
+        'xx'
+      ]
     }),
     'should set correct verbosity level': function (err, args) {
       assert.includes(args, '--verbose=1');
@@ -101,6 +106,9 @@ suite.addBatch({
     },
     'should pass the correct filters': function (err, args) {
       assert.includes(args, '--filter=+category1/subcat1,-category1/subcat2,+category1/subcat3,+category2/subcat1,-category2/subcat2,+category2/subcat3,+category2/subcat4,-category2/subcat5,+category2/subcat6');
+    },
+    'should pass the correct extensions': function (err, args) {
+      assert.includes(args, '--extensions=cpp,cc,xx');
     }
 
   },
