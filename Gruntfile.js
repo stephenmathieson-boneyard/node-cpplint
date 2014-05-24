@@ -11,7 +11,10 @@ module.exports = function (grunt) {
     vows: {
       src: [
         'test/*.js'
-      ]
+      ],
+      options: {
+        reporter: "spec"
+      }
     },
 
     jslint: {
@@ -111,4 +114,8 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', 'jslint');
+
+  grunt.registerTask('travis', [
+    'jslint', 'vows'
+  ]);
 };
