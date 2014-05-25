@@ -88,7 +88,12 @@ suite.addBatch({
           'subcat5': false,
           'subcat6': true
         }
-      }
+      },
+      'extensions': [
+        'cpp',
+        'cc',
+        'xx'
+      ]
     }),
     'should set correct verbosity level': function (err, args) {
       assert.includes(args, '--verbose=1');
@@ -101,10 +106,13 @@ suite.addBatch({
     },
     'should pass the correct filters': function (err, args) {
       assert.includes(args, '--filter=+category1/subcat1,-category1/subcat2,+category1/subcat3,+category2/subcat1,-category2/subcat2,+category2/subcat3,+category2/subcat4,-category2/subcat5,+category2/subcat6');
+    },
+    'should pass the correct extensions': function (err, args) {
+      assert.includes(args, '--extensions=cpp,cc,xx');
     }
 
   },
-  'values (without filters)': {
+  'values (without filters or extensions)': {
     topic: makeArgs({
       'verbosity': 1,
       'counting': 'total',
@@ -127,7 +135,16 @@ suite.addBatch({
       assert.includes(args, '/path/to/file1 /path/to/file2');
     },
     'should not pass a filter value': function (err, args) {
-      assert.equal(args.length, 4); // not quite good enough...
+      var i;
+      for (i = 0; i < args.length; i += 1) {
+        assert.isFalse(args[i].indexOf('filter') !== -1, 'filter was in the list of arguments');
+      }
+    },
+    'should not pass an extensions value': function (err, args) {
+      var i;
+      for (i = 0; i < args.length; i += 1) {
+        assert.isFalse(args[i].indexOf('extensions') !== -1, 'extensions was in the list of arguments');
+      }
     }
   }
 });
