@@ -139,6 +139,11 @@ and verify that all unit tests are passing with `grunt vows`.
 
 ## Revision History
 
+### 0.2.0
+
+- update cpplint
+- added extensions option for overriding what file extensions to lint
+
 ### 0.1.5
 
 - more windows compability fixes (line-endings) (@zcbenz)
