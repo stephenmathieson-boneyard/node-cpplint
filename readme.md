@@ -1,4 +1,4 @@
-# node-cpplint
+# node-cpplint [![Build Status](https://secure.travis-ci.org/stephenmathieson/node-cpplint.svg?branch=master)](http://travis-ci.org/stephenmathieson/node-cpplint) [![Dependency Status](https://david-dm.org/stephenmathieson/node-cpplint.svg)](https://david-dm.org/stephenmathieson/node-cpplint) [![devDependency Status](https://david-dm.org/stephenmathieson/node-cpplint/dev-status.svg)](https://david-dm.org/stephenmathieson/node-cpplint#info=devDependencies)
 
 Validates CPP files with Google's [cpplint](http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py)
 
