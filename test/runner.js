@@ -1,4 +1,4 @@
-/*jslint node:true, es5:true, unparam:true, nomen:true*/
+/*jslint node:true, unparam:true, nomen:true*/
 
 'use strict';
 
@@ -117,7 +117,6 @@ levels.forEach(function (level) {
   suite.addBatch(batch);
 });
 
-
 suite.addBatch({
   // raw output
   // ./node-cpp-hello.cpp:0:  No copyright message found.  You should have a line: "Copyright [year] <Copyright Owner>"  [legal/copyright] [5]
@@ -176,6 +175,5 @@ suite.addBatch({
     }
   }
 });
-
 
 suite.export(module);

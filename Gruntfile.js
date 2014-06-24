@@ -18,15 +18,17 @@ module.exports = function (grunt) {
     },
 
     jslint: {
-      files: [
-        'lib/**/*.js',
-        'test/**/*.js',
-        'Gruntfile.js'
-      ],
-      directives: {
-        node: true,
-        todo: true,
-        indent: 2
+      all: {
+        src: [
+          'lib/**/*.js',
+          'test/**/*.js',
+          'Gruntfile.js'
+        ],
+        directives: {
+          node: true,
+          todo: true,
+          indent: 2
+        }
       }
     },
 
