@@ -214,8 +214,33 @@ suite.addBatch({
     'should have correct level': function (err, lintError) {
       assert.equal(lintError.level, '5');
     }
-  }
+  },
 
+  'build/c++11 (5)': {
+    topic: function () {
+      var error = new LintError('src/channel.cpp:1:  <future> is an unapproved C++11 header.  [build/c++11] [5]');
+      this.callback(null, error);
+    },
+    'should have correct filename': function (err, lintError) {
+      assert.equal(lintError.file, 'src/channel.cpp');
+    },
+    'should have correct line number': function (err, lintError) {
+      assert.equal(lintError.linenumber, '1');
+    },
+    'should have correct reason': function (err, lintError) {
+      console.log(lintError);
+      assert.equal(lintError.reason, '<future> is an unapproved C++11 header.');
+    },
+    'should have correct category': function (err, lintError) {
+      assert.equal(lintError.category, 'build');
+    },
+    'should have correct sub-category': function (err, lintError) {
+      assert.equal(lintError.sub_category, 'c++11');
+    },
+    'should have correct level': function (err, lintError) {
+      assert.equal(lintError.level, '5');
+    }
+  }
 });
 
 suite.export(module);
