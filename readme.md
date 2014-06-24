@@ -139,6 +139,10 @@ and verify that all unit tests are passing with `grunt vows`.
 
 ## Revision History
 
+### 0.3.0
+
+- update cpplint
+
 ### 0.2.0
 
 - update cpplint
