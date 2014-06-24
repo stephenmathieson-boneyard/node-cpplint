@@ -1,4 +1,4 @@
-/*jslint node:true, es5:true, unparam:true*/
+/*jslint node:true, unparam:true*/
 
 'use strict';
 
