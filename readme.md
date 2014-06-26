@@ -9,7 +9,7 @@ line, and to be used as a Grunt task.
 
 ### Options
 
-All methods of using this module allow for four specific configuration options:
+All methods of using this module allow for these specific configuration options:
 
 - **reporter** The reporter to use ( *spec* | *json* | *plain-text* ); defaults
 to *spec*.
@@ -22,10 +22,9 @@ a count is provided for each category like `build/class`.
 errors to certain verbosity levels.
 - **filters** Enable/disable filtering for specific errors.
 - **extensions** List of file extensions to lint.
-
+- **linelength** The allowed line length.
 
 A list of files is also expected.
-
 
 ### CLI usage
 
@@ -35,10 +34,10 @@ Using the `spec` reporter, disabling *whitespace/braces* errors and linting *fil
 bin/cpplint --reporter spec --filter whitespace-braces file1
 ```
 
-Setting verbosity to `3` and the counting-type to `detailed` while linting *file1* and *file2*.
+Setting verbosity to `3`, line length to `120`, and the counting-type to `detailed` while linting *file1* and *file2*.
 
 ```bash
-bin/cpplint --verbose 3 --counting detailed file2 file3
+bin/cpplint --verbose 3 --counting detailed --linelength 120 file2 file3
 ```
 
 Using the `plain-text` reporter, ignoring *build/deprecated* errors and linting *file1*.
@@ -115,6 +114,7 @@ grunt.initConfig({
       'include_alpha': true
     }
   },
+  linelength: 120,
   // This could be an array of strings or a comma separated string
   extensions: [
     'cc',
@@ -128,7 +128,6 @@ grunt.initConfig({
 Future plans (in no particular order):
 - better test coverage
 - xunit-xml reporter
-
 
 ## Contributing
 
@@ -167,7 +166,6 @@ and verify that all unit tests are passing with `grunt vows`.
 
 ### 0.1.1
 - added simple grunt task
-
 
 ### 0.1.0
 

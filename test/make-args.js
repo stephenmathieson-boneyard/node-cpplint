@@ -92,7 +92,8 @@ suite.addBatch({
         'cpp',
         'cc',
         'xx'
-      ]
+      ],
+      'linelength': 120
     }),
     'should set correct verbosity level': function (err, args) {
       assert.includes(args, '--verbose=1');
@@ -108,6 +109,9 @@ suite.addBatch({
     },
     'should pass the correct extensions': function (err, args) {
       assert.includes(args, '--extensions=cpp,cc,xx');
+    },
+    'should pass the correct linelength': function (err, args) {
+      assert.includes(args, '--linelength=120');
     }
 
   },
