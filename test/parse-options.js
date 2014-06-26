@@ -37,6 +37,9 @@ suite.addBatch({
       assert.equal(result.verbosity, 1);
 
       assert.equal(result.counting, 'total');
+    },
+    'should not pass in filters': function (err, result) {
+      assert.equal(result.filters, undefined);
     }
   },
 

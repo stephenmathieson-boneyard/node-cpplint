@@ -228,7 +228,6 @@ suite.addBatch({
       assert.equal(lintError.linenumber, '1');
     },
     'should have correct reason': function (err, lintError) {
-      console.log(lintError);
       assert.equal(lintError.reason, '<future> is an unapproved C++11 header.');
     },
     'should have correct category': function (err, lintError) {
