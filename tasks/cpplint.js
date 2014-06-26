@@ -33,7 +33,7 @@ module.exports = function (grunt) {
       return false;
     }
 
-    options.filters = extend(filters.defaults, gruntFilters, true);
+    options.filters = gruntFilters;
 
     options.extensions = conf('extensions');
 
