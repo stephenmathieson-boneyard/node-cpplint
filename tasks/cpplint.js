@@ -40,6 +40,7 @@ module.exports = function (grunt) {
     options.files = grunt.file.expand(conf('files'));
     options.verbosity = conf('verbosity') || 1;
     options.counting = conf('counting') || 'toplevel';
+    options.linelength = conf('linelength');
 
     cpplint(options, function (err, report) {
 
