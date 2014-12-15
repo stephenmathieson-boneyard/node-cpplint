@@ -138,6 +138,10 @@ and verify that all unit tests are passing with `grunt vows`.
 
 ## Revision History
 
+### 0.4.0
+
+- add support for the `linelength` option
+
 ### 0.3.0
 
 - update cpplint
