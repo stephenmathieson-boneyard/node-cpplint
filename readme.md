@@ -106,20 +106,20 @@ grunt.initConfig({
       'src/**/*.cpp'
     ],
     reporter: 'spec',
-    verbosity: 1
-  },
-  filters: {
-    'whitespace': {
-      'braces': false,
-      'include_alpha': true
-    }
-  },
-  linelength: 120,
-  // This could be an array of strings or a comma separated string
-  extensions: [
-    'cc',
-    'hpp'
-  ]
+    verbosity: 1,
+    filters: {
+      'whitespace': {
+        'braces': false,
+        'include_alpha': true
+      }
+    },
+    linelength: 120,
+    // This could be an array of strings or a comma separated string
+    extensions: [
+      'cc',
+      'hpp'
+    ]
+  }
 });
 ```
 
