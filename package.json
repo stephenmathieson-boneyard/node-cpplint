@@ -28,13 +28,13 @@
     "code quality"
   ],
   "dependencies": {
-    "commander": "~2.2.0",
-    "colors": "~0.6.2"
+    "commander": "~2.9.0",
+    "colors": "~1.1.2"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "~1.0.1",
     "grunt-jslint": "~1.1.12",
-    "vows": "~0.7.0",
-    "grunt-vows": "~0.4.0"
+    "grunt-vows": "~0.4.0",
+    "vows": "~0.8.1"
   }
 }
