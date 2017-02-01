@@ -1,5 +1,3 @@
-/*jslint node:true, unparam:true*/
-
 'use strict';
 
 var vows = require('vows');

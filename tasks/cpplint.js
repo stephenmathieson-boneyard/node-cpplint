@@ -4,10 +4,6 @@ var cpplint = require('../lib/index.js');
 
 var reporters = require('../lib/reporters/index.js');
 
-var filters = require('../lib/filters.js');
-
-var extend = require('../lib/extend.js');
-
 module.exports = function (grunt) {
   'use strict';
 
@@ -56,7 +52,7 @@ module.exports = function (grunt) {
       // hack
       (function () {
 
-        var index, count, fileReport,
+        var index, count,
           filenames = Object.keys(report);
 
         for (index = 0, count = filenames.length; index < count; index += 1) {

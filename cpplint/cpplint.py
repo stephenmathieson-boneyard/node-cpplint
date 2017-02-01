@@ -4710,7 +4710,7 @@ def CheckLanguage(filename, clean_lines, linenum, file_extension,
 
   if Search(r'\busing namespace\b', line):
     error(filename, linenum, 'build/namespaces', 5,
-          'Do not use namespace using-directives.  '
+          'Do not use namespace using-directives. '
           'Use using-declarations instead.')
 
   # Detect variable-length arrays.

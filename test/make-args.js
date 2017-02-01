@@ -1,5 +1,4 @@
-/*jslint node:true, unparam:true*/
-
+/* eslint-disable no-unused-vars */
 'use strict';
 
 var vows = require('vows');
@@ -11,10 +10,6 @@ var path = require('path');
 var makeArgs = require('../lib/make-args.js').makeArgs;
 
 var filter = require('../lib/make-args.js').filter;
-
-var counting = require('../lib/make-args.js').counting;
-
-var verbosity = require('../lib/make-args.js').verbosity;
 
 var suite = vows.describe('make args');
 
@@ -105,7 +100,10 @@ suite.addBatch({
       assert.includes(args, '/path/to/file1 /path/to/file2');
     },
     'should pass the correct filters': function (err, args) {
-      assert.includes(args, '--filter=+category1/subcat1,-category1/subcat2,+category1/subcat3,+category2/subcat1,-category2/subcat2,+category2/subcat3,+category2/subcat4,-category2/subcat5,+category2/subcat6');
+      assert.includes(args, '--filter=+category1/subcat1,-category1/subcat2,'
+          + '+category1/subcat3,+category2/subcat1,-category2/subcat2,'
+          + '+category2/subcat3,+category2/subcat4,-category2/subcat5,'
+          + '+category2/subcat6');
     },
     'should pass the correct extensions': function (err, args) {
       assert.includes(args, '--extensions=cpp,cc,xx');
@@ -140,13 +138,15 @@ suite.addBatch({
     'should not pass a filter value': function (err, args) {
       var i;
       for (i = 0; i < args.length; i += 1) {
-        assert.isFalse(args[i].indexOf('filter') !== -1, 'filter was in the list of arguments');
+        assert.isFalse(args[i].indexOf('filter') !== -1,
+            'filter was in the list of arguments');
       }
     },
     'should not pass an extensions value': function (err, args) {
       var i;
       for (i = 0; i < args.length; i += 1) {
-        assert.isFalse(args[i].indexOf('extensions') !== -1, 'extensions was in the list of arguments');
+        assert.isFalse(args[i].indexOf('extensions') !== -1,
+            'extensions was in the list of arguments');
       }
     }
   }

@@ -19,7 +19,9 @@
     "node": "*"
   },
   "scripts": {
-    "test": "grunt travis"
+    "test": "npm run lint && npm run vows",
+    "lint": "eslint **/*.js",
+    "vows": "vows --spec test/*.js"
   },
   "keywords": [
     "cpplint",
@@ -32,9 +34,7 @@
     "colors": "~1.1.2"
   },
   "devDependencies": {
-    "grunt": "~1.0.1",
-    "grunt-jslint": "~1.1.12",
-    "vows": "~0.8.1",
-    "grunt-vows": "~0.4.0"
+    "eslint": "^3.13.1",
+    "vows": "~0.8.1"
   }
 }
