@@ -48,20 +48,6 @@ suite.addBatch({
       var lines = stdout.split('\n');
       assert.lengthOf(lines, 7);
     }
-  },
-
-  'filters': {
-    topic: function () {
-      exec(path.join(__dirname, '..', 'bin', 'cpplint') + ' --filters legal-copyright,' +
-          'build-namespaces,whitespace-braces ' + path.join(__dirname, 'fixtures', 'node-cpp-hello.cpp'),
-          this.callback);
-    },
-
-    'should exclude the filters': function (err, stdout, stderr) {
-      var lines = stdout.split('\n');
-      assert.lengthOf(lines, 2);
-      assert.match(lines[0], /✓/);
-    }
   }
 });
 
