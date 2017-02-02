@@ -1,5 +1,4 @@
-/*jslint node:true, unparam:true*/
-
+/* eslint-disable no-unused-vars */
 'use strict';
 
 var vows = require('vows');

@@ -1,5 +1,3 @@
-/*jslint node:true, unparam:true*/
-
 var vows = require('vows');
 var assert = require('assert');
 var cpplint = require('../lib/index.js');
