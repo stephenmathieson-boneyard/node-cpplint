@@ -33,8 +33,9 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
+    "grunt-cli": "^1.2.0",
     "grunt-jslint": "~1.1.12",
-    "vows": "~0.7.0",
-    "grunt-vows": "~0.4.0"
+    "grunt-vows": "~0.4.0",
+    "vows": "~0.7.0"
   }
 }
